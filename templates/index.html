@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Username Checker - Berlinxr</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="/static/logo.gif" alt="logo" style="width:48px;height:48px;border-radius:50%;">
+      </div>
+      <ul class="nav-links">
+        <li><a href="https://berlinxr.cfd">Anasayfa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h2>Discord Username Checker</h2>
+    <p>.txt dosyanı yükle.</p>
+
+    <form method="POST" action="/checkfile" enctype="multipart/form-data" style="margin-top: 30px;">
+      <input type="file" name="file" accept=".txt" required style="margin-bottom: 15px;" />
+      <br />
+      <button type="submit" class="moreinfo">Listeyi Kontrol Et</button>
+    </form>
+
+    {% if result %}
+      <div class="projects-section" style="margin-top: 40px;">
+        <h2>Sonuç:</h2>
+        <div class="project-card">
+          <div class="project-info">
+            <p>{{ result|safe }}</p>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Berlinxr / Onur. Tüm hakları saklıdır.</p>
+  </footer>
+</body>
+</html>
